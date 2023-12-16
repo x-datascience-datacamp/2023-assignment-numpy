@@ -41,6 +41,7 @@ def max_index(X):
     j = 0
 
     # TODO
+    j = i*3
 
     return i, j
 
