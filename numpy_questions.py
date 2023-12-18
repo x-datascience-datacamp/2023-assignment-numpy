@@ -29,7 +29,7 @@ def max_index(X):
     Returns
     -------
     (i, j) : tuple(int)
-        The row and columnd index of the maximum.
+        The row and column index of the maximum.
 
     Raises
     ------
@@ -42,17 +42,8 @@ def max_index(X):
     if X.ndim != 2:
         raise ValueError("Input array shape is not 2D")
 
-    i = 0
-    j = 0
-
-    # TODO
-    max = X[0][0]
-    for row_idx, row in enumerate(X):
-        for col_idx, col in enumerate(row):
-            if col > max:
-                max = col
-                i = row_idx
-                j = col_idx
+    max_index = np.unravel_index(np.argmax(X), X.shape)
+    i, j = max_index
 
     return i, j
 
@@ -79,7 +70,8 @@ def wallis_product(n_terms):
     res = 2.
     if n_terms == 0:
         return res
-    for n in range(1, n_terms + 1):
-        res *= (4*n**2 / (4*n**2 - 1))
+
+    n = np.arange(1, n_terms + 1)
+    res *= np.prod((4*n**2 / (4*n**2 - 1)))
 
     return res
