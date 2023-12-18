@@ -16,6 +16,7 @@ This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
 import numpy as np
+from decimal import Decimal
 
 
 def max_index(X):
@@ -42,6 +43,14 @@ def max_index(X):
 
     # TODO
 
+    max = np.amax(X)
+    i, j = np.where(X == max)
+    # raises value error
+    if not isinstance(X, np.ndarray):
+        raise ValueError("Input is not a numpy array")
+    if X.ndim != 2:
+        raise ValueError("Shape is not 2D")
+
     return i, j
 
 
@@ -64,4 +73,14 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    # Handle the case when n_terms is 0
+    if n_terms == 0:
+        return float(Decimal(1.0 * 2))
+
+    n = range(1, n_terms + 1)
+    wallis_product = Decimal(1)
+    for i in n:
+        wallis_product *= (
+            (Decimal(4) * i**2) / ((Decimal(4) * i**2) - Decimal(1))
+        )
+    return float(Decimal(2) * wallis_product)
