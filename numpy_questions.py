@@ -91,7 +91,7 @@ def wallis_product(n_terms):
     elif n_terms == 1:
         n = 4 / 3
     else:
-        n = np.arange(1, n_terms + 1)
+        n = np.arange(1, n_terms + 1, dtype=np.float64)
         n = np.prod((4 * np.power(n, 2)) / (4 * np.power(n, 2) - 1))
     return 2 * n
 
