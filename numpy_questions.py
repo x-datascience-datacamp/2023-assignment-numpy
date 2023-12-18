@@ -67,9 +67,9 @@ def wallis_product(n_terms):
 
     if n_terms != 0:
         for i in range(n_terms):
-            left = (2 * (i + 1)) / (2 * (i + 1) - 1)
-            right = (2 * (i + 1)) / (2 * (i + 1) + 1)
-            total = left * right
-            pi *= total
+            left_part = (2 * (i + 1)) / (2 * (i + 1) - 1)
+            right_part = (2 * (i + 1)) / (2 * (i + 1) + 1)
+            prod = left_part * right_part
+            pi *= prod
 
     return pi
