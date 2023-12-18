@@ -46,13 +46,9 @@ def max_index(X):
     # Vérification si la forme de X est 2D
     if X.ndim != 2:
         raise ValueError("Input array should be 2D.")
-
     # Trouver l'indice de l'élément maximum dans la matrice
     (i, j) = np.unravel_index(np.argmax(X), X.shape)
-    
-    
     return i, j
-
 
 def wallis_product(n_terms):
     """Implement the Wallis product to compute an approximation of pi.
