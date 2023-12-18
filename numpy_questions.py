@@ -64,6 +64,7 @@ def wallis_product(n_terms):
     """
     pi = 2.0
     if n_terms != 0:
-        for i in range(1, n_terms+1):
-            pi = pi * (2. * i)/(2. * i - 1.) * (2. * i)/(2. * i + 1.)
+        terms = np.arange(1, n_terms + 1)
+        pi = 2.0 * np.prod((2. * terms) / (2. * terms - 1.)
+                           * (2. * terms) / (2. * terms + 1.))
     return pi
