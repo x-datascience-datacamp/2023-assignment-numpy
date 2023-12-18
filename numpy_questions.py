@@ -39,8 +39,21 @@ def max_index(X):
     """
     i = 0
     j = 0
+    max = None
 
-    # TODO
+    if not isinstance(X, np.ndarray):
+        raise ValueError("Instance is not a numpy array")
+
+    if not X.ndim == 2:
+        raise ValueError(" Array is not a in 2d")
+
+    with np.nditer(X, flags=["multi_index"]) as it:
+        while not it.finished:
+            if max is None or X[it.multi_index] > max:
+                max = X[it.multi_index]
+                i = it.multi_index[0]
+                j = it.multi_index[1]
+            it.iternext()
 
     return i, j
 
@@ -64,4 +77,8 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    pi = 1
+    for n in range(n_terms):
+        pi *= 4 * (n + 1) ** 2 / (4 * (n + 1) ** 2 - 1)
+
+    return pi * 2
