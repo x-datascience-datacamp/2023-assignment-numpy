@@ -41,7 +41,13 @@ def max_index(X):
     j = 0
 
     if isinstance(X, np.ndarray):
-        i, j = np.unravel_index(np.argmax(X), X.shape)
+        if X.ndim != 2:
+            raise ValueError("The input is not a numpy array")
+        for row in range(X.shape[0]):
+            for col in range(X.shape[1]):
+                if X[row, col] > X[i, j]:
+                    i = row
+                    j = col
     else:
         raise ValueError("The input is not a numpy array")
 
