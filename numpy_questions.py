@@ -74,4 +74,3 @@ def wallis_product(n_terms):
     vect = np.arange(1, n_terms+1)
     approx_pi = np.prod(4*vect**2 / (4*vect**2-1))
     return approx_pi*2
-
