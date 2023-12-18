@@ -5,7 +5,7 @@ The goals of this assignment are:
     * Use automated tools to validate the code (`pytest` and `flake8`)
     * Submit a Pull-Request on github to practice `git`.
 
-The two functions below are skeleton functions. The docstrings explain what
+The two functions below are skeleton functions. The docstrings explain wha
 are the inputs, the outputs and the expected error. Fill the function to
 complete the assignment. The code should be able to pass the test that we
 wrote. To run the tests, use `pytest test_numpy_question.py` at the root of
@@ -16,6 +16,7 @@ This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
 import numpy as np
+import matplotlib.pyplot as plt     
 
 
 def max_index(X):
