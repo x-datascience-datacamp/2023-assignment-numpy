@@ -41,6 +41,7 @@ def max_index(X):
     j = 0
 
     # TODO
+
     # if the input is not a numpy array
     if not isinstance(X, np.ndarray):
         raise ValueError()
@@ -80,4 +81,4 @@ def wallis_product(n_terms):
     terms = np.array([4 * n**2 / (4 * n**2 - 1) for n in range(1, n_terms+1)])
 
     return 2 * np.prod(terms)
-    
+
