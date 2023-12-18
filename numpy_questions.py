@@ -74,5 +74,4 @@ def wallis_product(n_terms):
         result *= term
 
     result *= 2
-
     return result
