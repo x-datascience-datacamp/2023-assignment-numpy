@@ -45,7 +45,7 @@ def max_index(X):
         raise ValueError("The shape is not 2D")
     # TODO
     m = -np.inf
-    
+
     while i < X.shape[0]:
         j = 0
         while j < X.shape[1]:
@@ -78,15 +78,14 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    
+
     if n_terms < 0:
         raise ValueError("The number of terms is negative")
     pi = 2.0
+
     if n_terms == 0:
         return pi
-    pi=2.0
-    for i in range(1, n_terms + 1):
-        pi *= 4 * i ** 2 / (4 * i**2  - 1)
-    
-    print(pi)
+    else:
+        for i in range(1, n_terms + 1):
+            pi *= (4 * i ** 2) / (4 * i ** 2 - 1)
     return pi
