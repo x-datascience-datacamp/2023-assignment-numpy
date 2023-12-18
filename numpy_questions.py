@@ -1,4 +1,4 @@
-"""Assignment - using numpy and making a PR. blabla
+"""Assignment - using numpy and making a PR.
 
 The goals of this assignment are:
     * Use numpy in practice with two easy exercises.
@@ -20,6 +20,7 @@ import numpy as np
 
 def max_index(X):
     """Return the index of the maximum in a numpy array.
+    
     Parameters
     ----------
     X : ndarray of shape (n_samples, n_features)
