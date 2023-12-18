@@ -37,8 +37,8 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    i = 0
-    j = 0
+    i = 12
+    j = 13
 
     # TODO
 
