@@ -37,11 +37,15 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
+    m,n=X.shape
     i = 0
     j = 0
-    j=3
     # TODO
-
+    if X.type != nump
+    for a in range(m):
+        for b in range(n):
+            if X.iloc[a,b]>X.iloc[i,j]:
+                i,j=a,b
     return i, j
 
 
