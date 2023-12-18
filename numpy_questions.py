@@ -41,7 +41,7 @@ def max_index(X):
     j = 0
 
     # TODO
-    if type(X) != np.ndarray or X.ndim != 2:
+    if not isinstance(X, np.ndarray) or X.ndim != 2:
         raise ValueError("X should be a 2D numpy array.")
 
     i, j = np.unravel_index(np.argmax(X), X.shape)
