@@ -42,7 +42,7 @@ def max_index(X):
 
     # TODO
 
-    return i, j
+    return 3*i, j
 
 
 def wallis_product(n_terms):
