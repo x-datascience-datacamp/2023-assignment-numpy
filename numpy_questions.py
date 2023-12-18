@@ -16,11 +16,6 @@ This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
 import numpy as np
-import matplotlib.pyplot as plt     
-import scipy as scp 
-
-
-
 
 
 def max_index(X):
@@ -46,11 +41,12 @@ def max_index(X):
     j = 0
 
     # TODO
-    
-
-
+    i, j = np.unravel_index(np.argmax(X), X.shape)
     return i, j
-    
+
+
+#print('max test',max_index(np.random.normal(0,1,(5,5))))
+
 
 
 def wallis_product(n_terms):
@@ -72,4 +68,13 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    
+    pi = 0.0
+
+    for i in range(n_terms):
+        left = (2 * i)/(2 * i - 1)
+        right = (2 * i)/(2 * i + 1)
+        total = left * right
+        pi = pi + total
+
+    return pi
