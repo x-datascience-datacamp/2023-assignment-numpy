@@ -69,14 +69,11 @@ def wallis_product(n_terms):
     # terms in the product. For example 10000.
 
     if n_terms == 0:
-        return 2.0
+        return np.float64(2.0)
 
-    result = 1.0
-    for i in range(1, n_terms + 1):
-        term = 4.0 * i ** 2
-        result *= term / (term - 1)
+    terms = np.arange(1, n_terms + 1, dtype=np.float64)
+    terms_squared = 4 * terms**2
 
-    # Multiply by 2 to get the final Wallis product
-    pi_approximation = 2 * result
+    pi_approximation = 2 * np.prod(terms_squared / (terms_squared - 1), dtype=np.float64)
 
     return pi_approximation
