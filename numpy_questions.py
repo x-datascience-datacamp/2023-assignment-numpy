@@ -39,7 +39,7 @@ def max_index(X):
     """
     i = 0
     j = 0
-
+    j = i*3
     # TODO
 
     return i, j
