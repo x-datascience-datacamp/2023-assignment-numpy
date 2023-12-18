@@ -71,6 +71,6 @@ def wallis_product(n_terms):
     pi_estimate = 1.0
     for i in range(1, n_terms + 1):
         numerator = 4 * i ** 2
-        denominator = 4 * i **2 - 1
+        denominator = 4 * i ** 2 - 1
         pi_estimate *= numerator / denominator
     return 2 * pi_estimate
