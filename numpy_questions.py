@@ -52,8 +52,8 @@ def max_index(X):
 
     # now we need to find the index of the maximum
     m = np.argmax(X)
-    m = np.unravel_index(m, X.shape)
-    return m
+    i, j = np.unravel_index(m, X.shape)
+    return i, j
 
 
 def wallis_product(n_terms):
@@ -77,6 +77,6 @@ def wallis_product(n_terms):
     # terms in the product. For example 10000.
     if n_terms == 0:
         return 2.0
-    terms = np.array([4 * n**2 / (4 * n**2 - 1) for n in range(1, n_terms + 1)])
+    terms = np.array([4 * n**2 / (4 * n**2 - 1) for n in range(1, n_terms+1)])
 
     return 2 * np.prod(terms)
