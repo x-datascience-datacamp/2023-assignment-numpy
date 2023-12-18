@@ -73,5 +73,3 @@ def wallis_product(n_terms):
     log_product = np.sum(np.log(numerator / denominator))
     pi = np.exp(log_product) * 2
     return pi
-
-print(wallis_product(100000))
