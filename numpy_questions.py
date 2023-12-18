@@ -44,7 +44,6 @@ def max_index(X):
         raise ValueError("X is not 2D")
 
     i, j = np.unravel_index(np.argmax(X), X.shape)
-
     return i, j
 
 
