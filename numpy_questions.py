@@ -1,4 +1,4 @@
-"""Assignment - using numpy and making a PR.
+"""Assignment - using numpy and making a PR. Test
 
 The goals of this assignment are:
     * Use numpy in practice with two easy exercises.
