@@ -46,7 +46,6 @@ def max_index(X):
         raise ValueError("The shape is not 2D.")
     max_index_flat = np.argmax(X)
     i, j = np.unravel_index(max_index_flat, X.shape)
-
     return i, j
 
 
@@ -70,6 +69,7 @@ def wallis_product(n_terms):
     if n_terms == 0:
         return 2.0
     terms = np.arange(1, n_terms + 1)
-    pi_approximation = np.prod(((2 * terms) ** 2) / ((2 * terms - 1) * (2 * terms + 1)))
+    pi_approximation = np.prod(((2 * terms) ** 2) /
+                               ((2 * terms - 1) * (2 * terms + 1)))
     pi_approximation *= 2
     return pi_approximation
