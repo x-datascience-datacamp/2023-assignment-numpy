@@ -41,9 +41,9 @@ def max_index(X):
     j = 0
 
     # TODO
-
+    j=3*i
     return i, j
-
+    
 
 def wallis_product(n_terms):
     """Implement the Wallis product to compute an approximation of pi.
