@@ -70,10 +70,10 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    
+
     # If n_terms is 0, return 1
     if n_terms == 0:
-        return 1.0
+        return 2.0
     
     # Initialization of the product
     product = 1.0
@@ -81,8 +81,8 @@ def wallis_product(n_terms):
     # For loop
     for i in range(1, n_terms + 1):
         # Multiply terms in the numerator and denominator
-        numerator_term = 4 * i^2
-        denominator_term = 4 * i^2 - 1
+        numerator_term = 4 * i**2
+        denominator_term = 4 * i**2 - 1
 
         # Update the product
         product *= numerator_term / denominator_term
