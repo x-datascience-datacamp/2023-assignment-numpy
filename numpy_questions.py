@@ -5,7 +5,7 @@ The goals of this assignment are:
     * Use automated tools to validate the code (`pytest` and `flake8`)
     * Submit a Pull-Request on github to practice `git`.
 
-The two functions below are skeleton functions. The docstrings explain what
+The two functions below are skeleton functions. The docstrings explain whaté
 are the inputs, the outputs and the expected error. Fill the function to
 complete the assignment. The code should be able to pass the test that we
 wrote. To run the tests, use `pytest test_numpy_question.py` at the root of
@@ -37,10 +37,10 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    i = 0
-    j = 0
+    if not (isinstance(X, np.ndarray)) or len(X.shape) != 2:
+        raise ValueError("The input is not a numpy array/the shape is not 2D.")
 
-    # TODO
+    i, j = np.unravel_index(np.argmax(X), X.shape)
 
     return i, j
 
@@ -64,4 +64,11 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+
+    pi = 2.0
+    for i in range(1, n_terms + 1):
+        left = (2.0 * i) / (2.0 * i - 1.)
+        right = (2.0 * i) / (2.0 * i + 1.)
+        pi = pi * left * right
+
+    return pi
