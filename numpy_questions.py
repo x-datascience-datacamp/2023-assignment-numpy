@@ -65,6 +65,12 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    # XXX : The n_terms is an int that corresponds to the number of
-    # terms in the product. For example 10000.
-    return 0.
+    pi = 1.0
+
+    for i in range(1, n_terms + 1):
+        left = (2 * i) / (2 * i - 1)
+        right = (2 * i) / (2 * i + 1)
+        total = left * right
+        pi = pi * total
+
+    return 2 * pi
