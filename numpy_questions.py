@@ -39,7 +39,6 @@ def max_index(X):
     """
     i = 0
     j = 0
-
     # TODO
     if not isinstance(X, np.ndarray):
         raise ValueError("Input must be a numpy array")
@@ -59,7 +58,7 @@ def wallis_product(n_terms):
 
     Parameters
     ----------
-    n_terms : int
+    n_terms : inf
         Number of steps in the Wallis product. Note that `n_terms=0` will
         consider the product to be `1`.
 
