@@ -17,6 +17,10 @@ errors by calling `flake8` at the root of the repo.
 """
 import numpy as np
 import matplotlib.pyplot as plt     
+import scipy as scp 
+
+
+
 
 
 def max_index(X):
