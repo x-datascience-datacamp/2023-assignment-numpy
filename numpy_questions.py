@@ -44,8 +44,10 @@ def max_index(X):
     try:
         if X is None:
             raise ValueError("The input is None")
-        assert X is np.ndarray
-        assert len(X.shape) == 2
+        if type(X) is not np.ndarray:
+            raise ValueError("The input is not a numpy array")
+        if len(X.shape) != 2:
+            raise ValueError("The input is not 2D")
         i, j = np.unravel_index(np.argmax(X, axis=None), X.shape)
         return i, j
     except ValueError:
