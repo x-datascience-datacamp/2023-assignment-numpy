@@ -73,7 +73,7 @@ def wallis_product(n_terms):
         if n_terms == 0:
             return 2.
         terms = np.arange(1, n_terms + 1)
-        pi = 2 * np.prod((2 * terms / (2 * terms - 1)) * (2 * terms / (2 * terms + 1)))
-        return float(pi)
+        pi = np.prod((2*terms/(2*terms-1)) * (2*terms/(2*terms+1)))
+        return float(2 * pi)
     else:
         raise ValueError("The input is not a int.")
