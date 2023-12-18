@@ -40,8 +40,17 @@ def max_index(X):
     i = 0
     j = 0
 
-    # TODO
+    if not isinstance(X, np.ndarray):
+        raise ValueError("Input should be a NumPy array.")
 
+    # Vérification si la forme de X est 2D
+    if X.ndim != 2:
+        raise ValueError("Input array should be 2D.")
+
+    # Trouver l'indice de l'élément maximum dans la matrice
+    (i, j) = np.unravel_index(np.argmax(X), X.shape)
+    
+    
     return i, j
 
 
