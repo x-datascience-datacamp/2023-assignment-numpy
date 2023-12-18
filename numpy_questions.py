@@ -24,7 +24,7 @@ def max_index(X):
     Parameters
     ----------
     X : ndarray of shape (n_samples, n_features)
-        The input array.
+        The input array.cd ..
 
     Returns
     -------
@@ -41,8 +41,18 @@ def max_index(X):
     j = 0
 
     # TODO
+    
+    if type(X) is not np.ndarray :
+        raise ValueError("Required numpy ndarray")
+    elif len(X.shape) != 2:
+        raise ValueError("Require 2D array")
+    i,j = np.unravel_index(indices=X.argmax(), shape=X.shape)
+    return i,j
 
-    return i, j
+def test_max_index():
+    X= np.array([[0,1], [2,0]])
+    assert max_index(X)== (0,1)
+
 
 
 def wallis_product(n_terms):
@@ -64,4 +74,16 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    if n_terms==0:
+        return 1
+    else:  
+        pi = 2.
+        for i in xrange(1, n_terms):
+            opr1 = float((2. * i)/(2. * i - 1.))
+            opr2 = (2. * i)/(2. * i + 1.)
+            pi = pi * opr1 * opr2
+        return pi
+    
+def test_wallis_product():
+    pi_approx = wallis_product(0)
+    assert pi_approx ==2
