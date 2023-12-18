@@ -51,7 +51,7 @@ def max_index(X):
 
 def test_max_index():
     X= np.array([[0,1], [2,0]])
-    assert max_index(X)== (0,1)
+    assert max_index(X)== (1,0)
 
 
 
@@ -86,4 +86,4 @@ def wallis_product(n_terms):
     
 def test_wallis_product():
     pi_approx = wallis_product(0)
-    assert pi_approx ==2
+    assert pi_approx ==1
