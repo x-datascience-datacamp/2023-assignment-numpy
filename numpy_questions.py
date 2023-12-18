@@ -74,5 +74,4 @@ def wallis_product(n_terms: int) -> float:
     i = np.arange(1, n_terms + 1)
     pi_factors = (2 * i) / (2 * i - 1) * (2 * i) / (2 * i + 1)
     pi = 2 * np.prod(pi_factors)
-    
     return pi
