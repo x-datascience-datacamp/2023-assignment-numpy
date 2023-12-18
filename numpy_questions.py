@@ -73,13 +73,13 @@ def wallis_product(n_terms):
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
 
+    if n_terms == 0:
+        pi=1
+    
     k = np.arange(1, n_terms + 1)
-    pi = np.prod(4 * (k**2) / (4 * (k**2) - 1))
+    var = 4 * (k**2)
+    pi = np.prod(var / (var - 1))
+    
+    return pi*2
 
-    return pi
-
-X=np.array([[1,10],
-           [4,2]])
-
-print(max_index(X))
 print(wallis_product(10000))
