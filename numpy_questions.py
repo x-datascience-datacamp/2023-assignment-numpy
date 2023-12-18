@@ -74,6 +74,6 @@ def wallis_product(n_terms):
     terms = np.arange(1, n_terms + 1, dtype=np.float64)
     terms_squared = 4 * terms**2
 
-    pi_approximation=2*np.prod(terms_squared/(terms_squared-1),dtype=np.float64)
+    pi_approximation = 2*np.prod(terms_squared/(terms_squared-1), dtype=np.float64)
 
     return pi_approximation
