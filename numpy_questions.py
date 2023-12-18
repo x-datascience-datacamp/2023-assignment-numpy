@@ -42,6 +42,7 @@ def max_index(X):
 
     # TODO
     m = -np.inf
+    jf
     while i < X.shape[0]:
         j = 0
         while j < X.shape[1]:
