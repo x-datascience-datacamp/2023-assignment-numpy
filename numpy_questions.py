@@ -83,7 +83,7 @@ def wallis_product(n_terms):
     if n_terms < 0:
         raise ValueError("Input is negative")
     # Check the input is not too large
-    if n_terms >= 100000:
+    if n_terms > 100000:
         raise ValueError("Input is too large")
     # Compute the product
     if n_terms == 0:
