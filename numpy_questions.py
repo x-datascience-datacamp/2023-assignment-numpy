@@ -70,5 +70,4 @@ def wallis_product(n_terms):
     """
     def f(i):
         return (4*i**2)/(4*i**2-1)
-    terms = (np.arange(n_terms)+1).astype(float)
-    return 2 * np.exp(np.log(f(terms))@np.ones(n_terms))
+    return 2 * np.prod(f((np.arange(n_terms)+1).astype(float)))
