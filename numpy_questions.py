@@ -49,15 +49,10 @@ def max_index(X):
         raise ValueError(
             "Expected 2D input, " + str(len(X.shape)) + "D was given"
         )
-
-    max_value = 0
-
-    for i_count in range(len(X)):
-        for j_count in range(len(X[i_count])):
-            if X[i_count, j_count] >= max_value:
-                i, j = i_count, j_count
-                max_value = X[i_count, j_count]
-
+    # Find the index of the max value over the flattened array
+    argmax_index = X.argmax()
+    # Transpose the array into a flattened array of tuples (row,column)
+    i, j = np.unravel_index(argmax_index, X.shape)
     return i, j
 
 
