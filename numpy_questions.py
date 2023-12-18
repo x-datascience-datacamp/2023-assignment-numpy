@@ -37,10 +37,14 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    i = 0
-    j = 0
-    max_index = np.unravel_index(np.argmax(X, axis=None), X.shape)
-    i, j = max_index[0], max_index[1]
+    i, j = 0, 0
+    try:
+        max_index = np.unravel_index(np.argmax(X, axis=None), X.shape)
+        i, j = max_index[0], max_index[1]
+    except AttributeError:
+        raise ValueError('X is not a numpy array')
+    except IndexError:
+        raise ValueError('AttributeError: X is not a numpy array')
     return i, j
 
 
