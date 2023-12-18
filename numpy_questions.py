@@ -76,6 +76,3 @@ def wallis_product(n_terms):
     denom = 4 * np.power(iteration, 2) - 1
 
     return np.product(num / denom) * 2
-
-
-print(np.__version__)
