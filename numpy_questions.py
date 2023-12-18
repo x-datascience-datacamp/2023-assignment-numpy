@@ -73,12 +73,13 @@ def wallis_product(n_terms):
     # terms in the product. For example 10000.
     # Check if n_terms is zero
     if n_terms == 0:
-        return 1.0
-    result = 1.0
-    for k in range(1, n_terms + 1):
-        term = (4.0 * k ** 2) / ((4.0 * k ** 2) - 1)
-        result *= term
-    pi_approximation = 2 * result
+        return 1
+    else:
+        result = 1.0
+        for k in range(1, n_terms + 1):
+            term = (4.0 * k ** 2) / ((4.0 * k ** 2) - 1)
+            result *= term
+        pi_approximation = 2 * result
 
     return pi_approximation
 
