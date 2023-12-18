@@ -70,11 +70,12 @@ def wallis_product(n_terms):
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
 
-    iteration = np.arange(1, n_terms + 1, dtype = np.float64)
+    iteration = np.arange(1, n_terms + 1, dtype=np.float64)
 
     num = 4 * np.power(iteration, 2)
     denom = 4 * np.power(iteration, 2) - 1
 
     return np.product(num / denom) * 2
+
 
 print(np.__version__)
