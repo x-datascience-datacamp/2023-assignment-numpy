@@ -15,7 +15,8 @@ We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
-import numpy as np
+
+from numpy import unravel_index
 
 
 def max_index(X):
@@ -41,6 +42,16 @@ def max_index(X):
     j = 0
 
     # TODO
+    try:
+        tuple = unravel_index(X.argmax(), X.shape)
+        i = tuple[0]
+        j = tuple[1]
+    except IndexError:
+        raise ValueError('Index error')
+    except AttributeError:
+        raise ValueError('Attribute error')
+    except ValueError:
+        raise ValueError('Value error')
 
     return i, j
 
@@ -64,4 +75,14 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    pi = 1
+    for i in range(1, n_terms+1):
+        x = 4 * (i ** 2)
+        y = x - 1
+        z = float(x) / float(y)
+        if (i == 1):
+            pi = z
+        else:
+            pi *= z
+    pi *= 2
+    return pi
