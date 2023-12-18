@@ -5,7 +5,7 @@ The goals of this assignment are:
     * Use automated tools to validate the code (`pytest` and `flake8`)
     * Submit a Pull-Request on github to practice `git`.
 
-The two functions below are skeleton functions. The docstrings explain what
+The two functions below are skeleton functions. The docstrings explain wha
 are the inputs, the outputs and the expected error. Fill the function to
 complete the assignment. The code should be able to pass the test that we
 wrote. To run the tests, use `pytest test_numpy_question.py` at the root of
@@ -41,8 +41,12 @@ def max_index(X):
     j = 0
 
     # TODO
-
+    i, j = np.unravel_index(np.argmax(X), X.shape)
     return i, j
+
+
+#print('max test',max_index(np.random.normal(0,1,(5,5))))
+
 
 
 def wallis_product(n_terms):
@@ -64,4 +68,13 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    
+    pi = 0.0
+
+    for i in range(n_terms):
+        left = (2 * i)/(2 * i - 1)
+        right = (2 * i)/(2 * i + 1)
+        total = left * right
+        pi = pi + total
+
+    return pi
