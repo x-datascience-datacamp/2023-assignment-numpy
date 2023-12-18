@@ -72,7 +72,7 @@ def wallis_product(n_terms):
         The approximation of order `n_terms` of pi using the Wallis product.
     """
     if n_terms == 0:
-        return 1.0  # Si n_terms est 0, le produit est 1.
+        return 2.0  # Si n_terms est 0, le produit est 1.
 
     n = np.arange(1, n_terms + 1)
     terms = (4 * n * n) / (4 * n * n - 1)
