@@ -37,9 +37,7 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-
     # TODO
-
     if not isinstance(X, np.ndarray):
         raise ValueError("The input is not a numpy array")
     if len(X.shape) != 2:
