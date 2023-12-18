@@ -73,7 +73,7 @@ def wallis_product(n_terms):
     # terms in the product. For example 10000.
     # Check if n_terms is zero
     if n_terms == 0:
-        return 1
+        return 2
     else:
         result = 1.0
         for k in range(1, n_terms + 1):
