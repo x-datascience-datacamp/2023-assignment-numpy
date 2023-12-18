@@ -41,7 +41,8 @@ def max_index(X):
     j = 0
 
     # TODO
-
+    max_index = np.unravel_index(np.argmax(X), X.shape)
+    i,j = max_index
     return i, j
 
 
@@ -64,4 +65,23 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+
+    # Check if n_terms is 0
+    if n_terms == 0:
+        return 1.0
+
+    # Initialize the product to 1.0
+    result = 1.0
+
+    # Calculate the Wallis product
+    for i in range(1, n_terms + 1):
+        term = 4.0 * i ** 2
+        result *= term / (term - 1.0)
+
+    # Multiply by 2 to get the final result
+    result *= 2.0
+
+    return result
+
+
+
