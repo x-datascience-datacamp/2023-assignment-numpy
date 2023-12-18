@@ -39,16 +39,11 @@ def max_index(X):
     """
     i = 0
     j = 0
-
-
     if not isinstance(X, np.ndarray):
         raise ValueError("Input must be a numpy array")
-
     if X.ndim != 2:
         raise ValueError("Input must be a 2D array")
-
     i, j = np.unravel_index(np.argmax(X), X.shape)
-
     return i, j
 
 
@@ -80,6 +75,4 @@ def wallis_product(n_terms):
             term = (4.0 * k ** 2) / ((4.0 * k ** 2) - 1)
             result *= term
         pi_approximation = 2 * result
-
     return pi_approximation
-
