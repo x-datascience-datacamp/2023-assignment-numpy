@@ -37,12 +37,12 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    if not(isinstance(X,np.ndarray)):
+    if not (isinstance(X, np.ndarray)):
         raise ValueError()
-    
-    if X.ndim!=2:
+
+    if X.ndim != 2:
         raise ValueError()
-    
+
     i = 0
     j = 0
     Max = -np.inf
