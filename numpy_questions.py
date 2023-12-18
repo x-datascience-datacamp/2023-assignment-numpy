@@ -40,7 +40,16 @@ def max_index(X):
     i = 0
     j = 0
 
-    # TODO
+    if type(X) is not np.ndarray:
+        raise ValueError("input is not a numpy array")
+    elif len(X.shape) != 2:
+        raise ValueError("the shape is not 2D")
+
+    # find index of max value in flatten X
+    idx = X.argmax()
+
+    i = idx // X.shape[1]  # row
+    j = idx % X.shape[1]  # col
 
     return i, j
 
@@ -64,4 +73,19 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    pi = 2.0
+    if n_terms == 0:
+        return pi
+
+    # array of even integers from 2 to 2n
+    evens = np.arange(2, 2 * n_terms + 1, 2)
+
+    # array of odd integers from 1 to 2n - 1
+    odds = np.arange(1, 2 * n_terms, 2)
+
+    wallis_product = (evens / odds) * (evens / (odds + 2))
+
+    # multiply all the elements in wallis_product
+    pi = 2 * np.prod(wallis_product)
+
+    return pi
