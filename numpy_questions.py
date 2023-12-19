@@ -64,12 +64,6 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    pi = 1.0
+    pi = 2*np.prod(((2*np.arange(n_terms) + 2) / (2*np.arange(n_terms) + 1)) * ((2*np.arange(n_terms) + 2) / (2*np.arange(n_terms) + 3)))
 
-    for i in range(1, n_terms + 1):
-        left = (2 * i) / (2 * i - 1)
-        right = (2 * i) / (2 * i + 1)
-        total = left * right
-        pi = pi * total
-
-    return 2 * pi
+    return pi
