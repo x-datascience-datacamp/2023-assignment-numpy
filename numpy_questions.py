@@ -40,6 +40,13 @@ def max_index(X: np.ndarray):
     i = 0
     j = 0
 
+    type_X = type(X)
+
+    if type_X != np.ndarray:
+        raise ValueError(
+            f"The type of X ({type_X}) is not consistent with a numpy array"
+        )
+
     n_dim = X.ndim
 
     if n_dim != 2:
