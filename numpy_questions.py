@@ -42,18 +42,10 @@ def max_index(X):
     if not isinstance(X, np.ndarray) or X.ndim != 2:
         raise ValueError("Input must be a 2D numpy array")
 
-    i = 0
-    j = 0
-    rows, columns = X.shape
-    max = X[i, j]
+    max_idx = np.argmax(X)
+    max_row, max_col = np.unravel_index(max_idx, X.shape)
 
-    for i_ in range(rows):
-        for j_ in range(columns):
-            if X[i_, j_] > max:
-                i = i_
-                j = j_
-                max = X[i_, j_]
-    return i, j
+    return max_row, max_col
 
 
 def wallis_product(n_terms):
