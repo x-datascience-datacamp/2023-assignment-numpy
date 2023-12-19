@@ -18,7 +18,7 @@ errors by calling `flake8` at the root of the repo.
 import numpy as np
 
 
-def max_index(X : np.ndarray):
+def max_index(X: np.ndarray):
     """Return the index of the maximum in a numpy array.
 
     Parameters
@@ -42,10 +42,10 @@ def max_index(X : np.ndarray):
 
     n_dim = X.ndim
 
-    if n_dim != 2 :
+    if n_dim != 2:
         raise ValueError(f"The number dimension {n_dim} is different from 2")
 
-    i,j = np.unravel_index(np.argmax(X, axis=None), X.shape)
+    i, j = np.unravel_index(np.argmax(X, axis=None), X.shape)
 
     return i, j
 
@@ -67,9 +67,9 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    
-    n = np.arange(1,n_terms+1)
-    t = 4*n*n
-    t2 = t/(t-1)
+
+    n = np.arange(1, n_terms + 1)
+    t = 4 * n * n
+    t2 = t / (t - 1)
 
     return np.prod(t2)
