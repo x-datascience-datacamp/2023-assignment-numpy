@@ -15,9 +15,11 @@ We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
+
 import numpy as np
 
 
+# Returns the index of the maximum in a numpy array
 def max_index(X):
     """Return the index of the maximum in a numpy array.
 
@@ -41,10 +43,24 @@ def max_index(X):
     j = 0
 
     # TODO
+    # X needs to be a numpy array
+    if type(X) is not np.ndarray:
+        raise ValueError(
+            'The input is not a numpy array but is a {}'.format(type(X))
+        )
+    # X needs to be 2 dimensional
+    elif len(X.shape) != 2:
+        raise ValueError(
+            'The shape of the input is not 2D but is {}D'.format(len(X.shape))
+        )
+    ij = np.unravel_index(np.argmax(X, axis=None), X.shape)
+    i = ij[0]
+    j = ij[1]
 
     return i, j
 
 
+# Returns approximation of pi using the wallis product
 def wallis_product(n_terms):
     """Implement the Wallis product to compute an approximation of pi.
 
@@ -64,4 +80,12 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+
+    # Creation of numpy array of n integers from 1 to n_terms+1 spaced by 1
+    # dtype need to be greater than 32 because if n_terms is >65535 it will go
+    # back to 0 and then you multiply by 0 => the whole product is null
+    n_array = np.arange(1, n_terms+1, dtype=np.float64)
+    n_array = (4.0*n_array**2)/(4.0*n_array**2-1.0)
+    pi = 2*np.prod(n_array)
+
+    return pi
