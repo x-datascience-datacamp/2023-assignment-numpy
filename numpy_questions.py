@@ -1,5 +1,4 @@
-"""
-Thierry-Sephine GOMA-LEGERNARD.
+"""Thierry-Sephine GOMA-LEGERNARD.
 @Sephine-1st GitHub.
 
 Assignment - using numpy and making a PR.
