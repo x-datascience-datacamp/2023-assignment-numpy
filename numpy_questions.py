@@ -80,8 +80,3 @@ def wallis_product(n_terms):
         return 2 * np.prod(numerator / denominator)
 
 
-n_terms = 500000
-approximation = wallis_product(n_terms)
-print(f"Approximation of pi using {n_terms} terms in the Wallis product: {approximation}")
-
-
