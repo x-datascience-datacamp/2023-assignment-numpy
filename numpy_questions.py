@@ -41,7 +41,7 @@ def max_index(X):
         raise ValueError("The input is not a numpy array")
     elif not len(X.shape) == 2:
         raise ValueError("The shape is not 2D")
-    
+
     flat_argmax = np.argmax(X.flatten())
 
     return flat_argmax // X.shape[0], flat_argmax % X.shape[0]
