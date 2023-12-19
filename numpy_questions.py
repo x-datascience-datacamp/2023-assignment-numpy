@@ -1,7 +1,6 @@
 """
-
-Thierry-Séphine GOMA-LEGERNARD
-@Sephine-1st GitHub
+Thierry-Sephine GOMA-LEGERNARD.
+@Sephine-1st GitHub.
 
 Assignment - using numpy and making a PR.
 
@@ -19,8 +18,8 @@ the repo. It should say that 2 tests ran with success.
 We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
-
 """
+
 import numpy as np
 
 
@@ -43,8 +42,6 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    i = 0
-    j = 0
 
     # We check if input is a numpy array
     if not isinstance(X, np.ndarray):
