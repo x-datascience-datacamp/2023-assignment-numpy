@@ -1,7 +1,4 @@
-"""Thierry-Sephine GOMA-LEGERNARD.
-@Sephine-1st GitHub.
-
-Assignment - using numpy and making a PR.
+"""Assignment - using numpy and making a PR.
 
 The goals of this assignment are:
     * Use numpy in practice with two easy exercises.
@@ -41,7 +38,6 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-
     # We check if input is a numpy array
     if not isinstance(X, np.ndarray):
         raise ValueError("Input must be a numpy array.")
