@@ -42,10 +42,10 @@ def max_index(X):
 
     if not isinstance(X, np.ndarray):
         raise TypeError("Input should be a NumPy array")
-    
+
     if X.ndim != 2:
         raise ValueError("Input should be a two-dimensional array")
-    
+
     n_features = X.shape[1]
 
     flattened_index = np.argmax(X)
@@ -79,5 +79,5 @@ def wallis_product(n_terms):
     # terms in the product. For example 10000.
     wallis = 1.
     for n in range(n_terms):
-        wallis *= 4. * (n**2.) / (4. * (n**2) - 1.)
-    return wallis
+        wallis = wallis * 4 * ((n+1)**2.) / (4. * ((n+1)**2) - 1.)
+    return 2*wallis
