@@ -48,7 +48,6 @@ def max_index(X):
     # if the input is a numpy array but is not 2D
     if not X.ndim == 2:
         raise ValueError()
-
     # now we need to find the index of the maximum
     m = np.argmax(X)
     i, j = np.unravel_index(m, X.shape)
