@@ -1,4 +1,9 @@
-"""Assignment - using numpy and making a PR.
+"""
+
+Thierry-Séphine GOMA-LEGERNARD
+@Sephine-1st GitHub
+
+Assignment - using numpy and making a PR.
 
 The goals of this assignment are:
     * Use numpy in practice with two easy exercises.
@@ -14,6 +19,7 @@ the repo. It should say that 2 tests ran with success.
 We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
+
 """
 import numpy as np
 
@@ -40,7 +46,16 @@ def max_index(X):
     i = 0
     j = 0
 
-    # TODO
+    # We check if input is a numpy array
+    if not isinstance(X, np.ndarray):
+        raise ValueError("Input must be a numpy array.")
+
+    # We check if the shape is 2D
+    if X.ndim != 2:
+        raise ValueError("Input array must be 2D.")
+
+    # We find the indices of the maximum element using argmax
+    i, j = np.unravel_index(np.argmax(X, axis=None), X.shape)
 
     return i, j
 
@@ -55,13 +70,24 @@ def wallis_product(n_terms):
     ----------
     n_terms : int
         Number of steps in the Wallis product. Note that `n_terms=0` will
-        consider the product to be `1`.
+        consider the product to be `1`.(This instruction is not clear!).
 
     Returns
     -------
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    # XXX : The n_terms is an int that corresponds to the number of
-    # terms in the product. For example 10000.
-    return 0.
+    if n_terms == 0:
+        pi_approximation = 2.0
+    else:
+        # We initialize the Wallis product
+        res_wallis_product = 1.0
+        # We calculate the Wallis product to estimate pi/2
+        for k in range(1, n_terms + 1):
+            num_k = (4.0 * (k**2))
+            denom_k = num_k - 1
+            term_k = num_k / denom_k
+            res_wallis_product *= term_k
+        # Finally, we get the final approximation of pi
+        pi_approximation = 2 * res_wallis_product
+    return pi_approximation
