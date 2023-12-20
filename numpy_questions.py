@@ -74,10 +74,6 @@ def wallis_product(n_terms):
         term = 4.0 * k**2 / (4.0 * k**2 - 1)
         pi_approximation *= term
 
-    # Multiply by 2 since it's a product of ratios (each term is multiplied by 2)
     pi_approximation *= 2
 
     return pi_approximation
-
-
-
