@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def max_index(X):
     """Return the index of the maximum in a numpy array.
 
@@ -24,6 +25,7 @@ def max_index(X):
 
     i, j = np.unravel_index(np.argmax(X), X.shape)
     return i, j
+
 
 def wallis_product(n_terms):
     """Implement the Wallis product to compute an approximation of pi.
