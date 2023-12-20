@@ -49,7 +49,6 @@ def wallis_product(n_terms):
 
     See:
     https://en.wikipedia.org/wiki/Wallis_product
-
     Parameters
     ----------
     n_terms : int
