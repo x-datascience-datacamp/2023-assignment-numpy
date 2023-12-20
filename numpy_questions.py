@@ -16,6 +16,8 @@ This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
 import numpy as np
+import pytest
+import math as m
 
 
 def max_index(X):
@@ -42,16 +44,32 @@ def max_index(X):
 
     # TODO
     
+    
     if type(X) is not np.ndarray :
         raise ValueError("Required numpy ndarray")
+    if X.size ==0:
+        raise ValueError(" size 0")
     elif len(X.shape) != 2:
         raise ValueError("Require 2D array")
     i,j = np.unravel_index(indices=X.argmax(), shape=X.shape)
-    return i,j
+    return (i,j)
 
 def test_max_index():
-    X= np.array([[0,1], [2,0]])
-    assert max_index(X)== (1,0)
+    X = np.array([[0, 1], [2, 0]])
+    assert max_index(X) == (1, 0)
+
+    X = np.random.randn(100, 100)
+    i, j = max_index(X)
+    assert np.all(X[i, j] >= X)
+
+    with pytest.raises(ValueError):
+        max_index(None)
+
+    with pytest.raises(ValueError):
+        max_index([[0, 1], [2, 0]])
+
+    with pytest.raises(ValueError):
+        max_index(np.array([0, 1]))
 
 
 
@@ -75,15 +93,20 @@ def wallis_product(n_terms):
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
     if n_terms==0:
-        return 1
-    else:  
-        pi = 2.
-        for i in xrange(1, n_terms):
-            opr1 = float((2. * i)/(2. * i - 1.))
-            opr2 = (2. * i)/(2. * i + 1.)
-            pi = pi * opr1 * opr2
-        return pi
+        return 2
+    pi = 2.
+    for i in range(1, n_terms+1):
+        opr1 = float((2. * i)/(2. * i - 1.))
+        opr2 = float((2. * i)/(2. * i + 1.))
+        pi = pi * opr1 * opr2
+    return pi
     
 def test_wallis_product():
     pi_approx = wallis_product(0)
-    assert pi_approx ==1
+    assert pi_approx == 2.
+
+    pi_approx = wallis_product(1)
+    assert pi_approx == 8 / 3
+
+    pi_approx = wallis_product(100000)
+    assert abs(pi_approx - m.pi) < 1e-4
