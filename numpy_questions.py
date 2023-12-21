@@ -37,9 +37,7 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    if not isinstance(X, np.ndarray):
-        raise ValueError
-    if X.ndim != 2:
+    if not isinstance(X, np.ndarray) or X.ndim != 2:
         raise ValueError
 
     index = np.unravel_index(np.argmax(X), X.shape)
