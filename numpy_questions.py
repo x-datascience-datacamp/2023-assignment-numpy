@@ -45,11 +45,14 @@ def max_index(X) :
     # TODO
     if type(X) is not np.ndarray :
         raise ValueError("Required numpy ndarray")
+    
     if X.size ==0 :
         raise ValueError(" size 0")
+    
     elif len(X.shape) != 2 :
         raise ValueError("Require 2D array")
     i, j = np.unravel_index(indices=X.argmax(), shape=X.shape)
+    
     return (i,j)
 
 
@@ -71,8 +74,8 @@ def test_max_index() :
         max_index(np.array([0, 1]))
 
 
+def wallis_product(n_terms=0) :
 
-def wallis_product(n_terms=0):
     """Implement the Wallis product to compute an approximation of pi.
 
     See:
