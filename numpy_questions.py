@@ -18,7 +18,6 @@ errors by calling `flake8` at the root of the repo.
 import numpy as np
 import pytest
 import math as m
-
 def max_index(X):
     """Return the index of the maximum in a numpy array.
 
@@ -50,6 +49,7 @@ def max_index(X):
         raise ValueError("Require 2D array")
     i,j = np.unravel_index(indices=X.argmax(), shape=X.shape)
     return (i,j)
+
 
 def test_max_index():
     X = np.array([[0, 1], [2, 0]])
@@ -89,8 +89,6 @@ def wallis_product(n_terms=0):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    #if n_terms==0:
-     #   return 2
     pi = 2.
     for i in range(1, n_terms+1):
         opr1 = float((2. * i)/(2. * i - 1.))
