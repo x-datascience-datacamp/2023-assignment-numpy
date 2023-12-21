@@ -19,7 +19,6 @@ import numpy as np
 import pytest
 import math as m
 
-
 def max_index(X):
     """Return the index of the maximum in a numpy array.
 
@@ -43,8 +42,6 @@ def max_index(X):
     j = 0
 
     # TODO
-    
-    
     if type(X) is not np.ndarray :
         raise ValueError("Required numpy ndarray")
     if X.size ==0:
