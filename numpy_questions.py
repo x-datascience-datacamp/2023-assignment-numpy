@@ -73,7 +73,7 @@ def test_max_index():
 
 
 
-def wallis_product(n_terms):
+def wallis_product(n_terms=0):
     """Implement the Wallis product to compute an approximation of pi.
 
     See:
@@ -92,8 +92,8 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    if n_terms==0:
-        return 2
+    #if n_terms==0:
+     #   return 2
     pi = 2.
     for i in range(1, n_terms+1):
         opr1 = float((2. * i)/(2. * i - 1.))
