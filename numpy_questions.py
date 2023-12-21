@@ -43,7 +43,7 @@ def max_index(X):
     j = 0
 
     if type(X) is not np.ndarray:
-        raise ValueError("Required numpy ndarray")    
+        raise ValueError("Required numpy ndarray")   
     elif X.size == 0:
         raise ValueError(" size 0")
     elif len(X.shape) != 2:
