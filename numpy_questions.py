@@ -17,7 +17,6 @@ errors by calling `flake8` at the root of the repo.
 """
 import numpy as np
 
-
 def max_index(X):
     """Return the index of the maximum in a numpy array.
 
@@ -49,6 +48,7 @@ def max_index(X):
         raise ValueError('Input array shape is not 2D')
 
     i, j = np.unravel_index(np.argmax(X), X.shape)
+
     return i, j
 
 
@@ -77,7 +77,6 @@ def wallis_product(n_terms):
     for i in range(1, n_terms + 1):
         term = (2 * i) / (2 * i - 1) * (2 * i) / (2 * i + 1)
         pi_approx *= term
-    # Multiply by 2 to get the final approximation
     pi_approx *= 2
     return pi_approx
     
