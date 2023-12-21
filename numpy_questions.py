@@ -51,10 +51,8 @@ def max_index(X):
 
     # Find the indices of the maximum value
     max_index_flat = np.argmax(X)
-    i,j = np.unravel_index(max_index_flat, X.shape)
-
-    return i,j
-    
+    i, j = np.unravel_index(max_index_flat, X.shape)
+    return i, j
 
 
 def wallis_product(n_terms):
@@ -74,19 +72,12 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    
     if n_terms == 0:
         return 2.0
-
     pi_approx = 1.0
     for i in range(1, n_terms + 1):
         term = (2 * i) / (2 * i - 1) * (2 * i) / (2 * i + 1)
         pi_approx *= term
-
     # Multiply by 2 to get the final approximation
     pi_approx *= 2
-
-    
-   
-
     return pi_approx
