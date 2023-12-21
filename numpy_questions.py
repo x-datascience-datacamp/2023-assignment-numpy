@@ -18,7 +18,9 @@ errors by calling `flake8` at the root of the repo.
 import numpy as np
 import pytest
 import math as m
-def max_index(X):
+def max_index(X) :
+
+
     """Return the index of the maximum in a numpy array.
 
     Parameters
@@ -43,15 +45,15 @@ def max_index(X):
     # TODO
     if type(X) is not np.ndarray :
         raise ValueError("Required numpy ndarray")
-    if X.size ==0:
+    if X.size ==0 :
         raise ValueError(" size 0")
-    elif len(X.shape) != 2:
+    elif len(X.shape) != 2 :
         raise ValueError("Require 2D array")
-    i,j = np.unravel_index(indices=X.argmax(), shape=X.shape)
+    i, j = np.unravel_index(indices=X.argmax(), shape=X.shape)
     return (i,j)
 
 
-def test_max_index():
+def test_max_index() :  
     X = np.array([[0, 1], [2, 0]])
     assert max_index(X) == (1, 0)
 
@@ -59,13 +61,13 @@ def test_max_index():
     i, j = max_index(X)
     assert np.all(X[i, j] >= X)
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) :
         max_index(None)
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) :
         max_index([[0, 1], [2, 0]])
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) :
         max_index(np.array([0, 1]))
 
 
