@@ -64,6 +64,7 @@ def wallis_product(n_terms):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
+    # pi/2 formula from wallis
     range = np.arange(1, n_terms + 1, dtype=np.float64)
     n = 4 * np.power(range, 2)
     d = 4 * np.power(range, 2) - 1
