@@ -39,6 +39,7 @@ def max_index(X):
     """
     if not isinstance(X, np.ndarray):
         raise ValueError('Work with ndarray Only')
+
     elif (X.ndim != 2):
         raise ValueError('Work with 2D ndarray Only')
 
@@ -70,6 +71,7 @@ def wallis_product(n_terms):
     pi = 2.0
 
     if (n_terms != 0):
+
         terms = np.arange(start=1, stop=n_terms+1, step=1)
         terms = 4*terms**2/(4*terms**2 - 1)
 
