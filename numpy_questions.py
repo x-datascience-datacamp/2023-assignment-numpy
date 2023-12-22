@@ -19,7 +19,6 @@ import numpy as np
 
 
 def max_index(X):
-
     """Return the index of the maximum in a numpy array.
 
     Parameters
@@ -49,6 +48,22 @@ def max_index(X):
 
 
 def wallis_product(n_terms):
+    """
+    Return the index of the maximum in a numpy array.
+    Parameters
+    ----------
+    X : ndarray of shape (n_samples, n_features)
+        The input array.
+    Returns
+    -------
+    (i, j) : tuple(int)
+        The row and columnd index of the maximum.
+    Raises
+    ------
+    ValueError
+        If the input is not a numpy array or
+        if the shape is not 2D.
+    """
     range = np.arange(1, n_terms + 1, dtype=np.float64)
     n = 4 * np.power(range, 2)
     d = 4 * np.power(range, 2) - 1
