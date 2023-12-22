@@ -74,7 +74,7 @@ def wallis_product(n_terms):
     # terms in the product. For example 10000.
     if n_terms == 0:
         return 2
-    wallis = 1
-    for k in range(1, n_terms+1):
-        wallis = wallis*2*k/(2*k-1)*2*k/(2*k+1)
-    return 2*wallis
+    numerator = 4. * np.arange(1, n_terms + 1, dtype=np.float64) ** 2
+    denominator = (4. * np.arange(1, n_terms + 1, dtype=np.float64) ** 2 - 1.)
+    wallis = numerator/denominator
+    return 2.*np.prod(wallis)
