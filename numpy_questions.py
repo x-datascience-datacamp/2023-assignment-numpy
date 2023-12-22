@@ -16,6 +16,7 @@ This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
 import numpy as np
+from numpy import unravel_index
 
 
 def max_index(X):
@@ -37,10 +38,17 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
+    # Some preliminary tests
+    if not isinstance(X, np.ndarray):
+        raise ValueError("The input is not a numpy array")
+    elif X.ndim != 2:
+        raise ValueError("The shape is not 2D")
     i = 0
     j = 0
 
     # TODO
+
+    i, j = unravel_index(X.argmax(), X.shape)
 
     return i, j
 
@@ -64,4 +72,9 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    if n_terms == 0:
+        return 2
+    numerator = 4. * np.arange(1, n_terms + 1, dtype=np.float64) ** 2
+    denominator = (4. * np.arange(1, n_terms + 1, dtype=np.float64) ** 2 - 1.)
+    wallis = numerator/denominator
+    return 2.*np.prod(wallis)
